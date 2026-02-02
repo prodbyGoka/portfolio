@@ -2,8 +2,10 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('@vercel/analytics/react');
+
+test('renders portfolio content', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const mottoElement = screen.getByText(/A kid who is building the future/i);
+  expect(mottoElement).toBeInTheDocument();
 });

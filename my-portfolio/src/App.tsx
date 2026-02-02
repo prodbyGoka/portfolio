@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Github, Mail, MapPin, Globe, Server, Code, Terminal, ChevronRight, type LucideIcon } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 // Define the interface for a single language translation object
 interface Translation {
@@ -122,7 +123,9 @@ export default function Portfolio() {
 
   return (
     // Added 'scroll-smooth' for better navigation experience
-    <div className="min-h-screen flex flex-col bg-slate-900 text-slate-100 font-sans selection:bg-blue-500 selection:text-white scroll-smooth">
+    <>
+      <Analytics />
+      <div className="min-h-screen flex flex-col bg-slate-900 text-slate-100 font-sans selection:bg-blue-500 selection:text-white scroll-smooth">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -252,6 +255,7 @@ export default function Portfolio() {
       <footer className="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
         <p>&copy; {new Date().getFullYear()} {t.name}. {t.rights}</p>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
